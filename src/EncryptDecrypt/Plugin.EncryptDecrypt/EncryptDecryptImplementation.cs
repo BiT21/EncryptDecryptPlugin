@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+ using Plugin.EncryptDecrypt.Abstractions;
+
 namespace Plugin.EncryptDecrypt
 {
-    using Plugin.EncryptDecrypt.Abstractions;
-#if NETSTANDARD1_0
+
+#if NETSTANDARD1_0 || WINDOWS_UWP
     public class EncryptDecryptImplementation : EncryptDecryptBase, IEncryptDecrypt
     {
         Task<string> IEncryptDecrypt.DecryptStringAsync(string password, string data)
@@ -34,15 +36,10 @@ namespace Plugin.EncryptDecrypt
         {
             throw new NotImplementedException();
         }
-
     }
-
-
 
 #else
     using System.Security.Cryptography;
-    using System.Runtime.Serialization;
-
 
     public class EncryptDecryptImplementation : EncryptDecryptBase, IEncryptDecrypt
     {
@@ -76,7 +73,7 @@ namespace Plugin.EncryptDecrypt
                 if (cx.Message.StartsWith("Bad Data."))
                     throw new EncryptDecryptExceptionWrongPassword("WrongPassword", cx);
                 else
-                    throw;
+                    throw new testexception();
             }
         }
 
@@ -91,89 +88,143 @@ namespace Plugin.EncryptDecrypt
 
     }
 
-#if WINDOWS_UWP || NETSTANDARD1_0
+    internal class testexception : Exception
+    {
+        public testexception()
+        {
+        }
+
+        public testexception(string message) : base(message)
+        {
+        }
+
+        public testexception(string message, Exception innerException) : base(message, innerException)
+        {
+        }
+    }
+#endif //Class
+
     internal class EncryptDecriptException : Exception
     {
-        public EncryptDecriptException(string message, Exception innerException) : base(message, innerException)
-        {
-        }
-    }
-
-    internal class EncryptDecryptExceptionDataCorruption : Exception
-    {
-        public EncryptDecryptExceptionDataCorruption(string message, Exception innerException) : base(message, innerException)
-        {
-        }
-
-    }
-
-    internal class EncryptDecryptExceptionWrongPassword : Exception
-    {
-        public EncryptDecryptExceptionWrongPassword(string message, Exception innerException) : base(message, innerException)
-        {
-        }
-    }
-#else
-    [Serializable]
-    internal class EncryptDecriptException : Exception
-    {
-        public EncryptDecriptException()
-        {
-        }
-
         public EncryptDecriptException(string message) : base(message)
         {
         }
-
         public EncryptDecriptException(string message, Exception innerException) : base(message, innerException)
         {
         }
-
-        protected EncryptDecriptException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-        }
     }
 
-    [Serializable]
     internal class EncryptDecryptExceptionDataCorruption : Exception
     {
-        public EncryptDecryptExceptionDataCorruption()
-        {
-        }
-
         public EncryptDecryptExceptionDataCorruption(string message) : base(message)
         {
         }
-
         public EncryptDecryptExceptionDataCorruption(string message, Exception innerException) : base(message, innerException)
         {
         }
-
-        protected EncryptDecryptExceptionDataCorruption(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-        }
     }
 
-    [Serializable]
     internal class EncryptDecryptExceptionWrongPassword : Exception
     {
-        public EncryptDecryptExceptionWrongPassword()
-        {
-        }
-
         public EncryptDecryptExceptionWrongPassword(string message) : base(message)
         {
         }
-
         public EncryptDecryptExceptionWrongPassword(string message, Exception innerException) : base(message, innerException)
         {
         }
-
-        protected EncryptDecryptExceptionWrongPassword(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-        }
     }
-#endif //UWP 
-#endif //Class
+    
+//#if WINDOWS_UWP || NETSTANDARD1_0
+//    internal class EncryptDecriptException : Exception
+//    {
+//        public EncryptDecriptException(string message) : base(message)
+//        {
+//        }
+//        public EncryptDecriptException(string message, Exception innerException) : base(message, innerException)
+//        {
+//        }
+//    }
+
+//    internal class EncryptDecryptExceptionDataCorruption : Exception
+//    {
+//        public EncryptDecryptExceptionDataCorruption(string message) : base(message)
+//        {
+//        }
+//        public EncryptDecryptExceptionDataCorruption(string message, Exception innerException) : base(message, innerException)
+//        {
+//        }
+
+//    }
+
+//    internal class EncryptDecryptExceptionWrongPassword : Exception
+//    {
+//        public EncryptDecryptExceptionWrongPassword(string message) : base(message)
+//        {
+//        }
+//        public EncryptDecryptExceptionWrongPassword(string message, Exception innerException) : base(message, innerException)
+//        {
+//        }
+//    }
+//#else
+//    [Serializable]
+//    internal class EncryptDecriptException : Exception
+//    {
+//        public EncryptDecriptException()
+//        {
+//        }
+
+//        public EncryptDecriptException(string message) : base(message)
+//        {
+//        }
+
+//        public EncryptDecriptException(string message, Exception innerException) : base(message, innerException)
+//        {
+//        }
+
+//        protected EncryptDecriptException(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) : base(info, context)
+//        {
+//        }
+//    }
+
+//    [Serializable]
+//    internal class EncryptDecryptExceptionDataCorruption : Exception
+//    {
+//        public EncryptDecryptExceptionDataCorruption()
+//        {
+//        }
+
+//        public EncryptDecryptExceptionDataCorruption(string message) : base(message)
+//        {
+//        }
+
+//        public EncryptDecryptExceptionDataCorruption(string message, Exception innerException) : base(message, innerException)
+//        {
+//        }
+
+//        protected EncryptDecryptExceptionDataCorruption(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) : base(info, context)
+//        {
+//        }
+//    }
+
+//    [Serializable]
+//    internal class EncryptDecryptExceptionWrongPassword : Exception
+//    {
+//        public EncryptDecryptExceptionWrongPassword()
+//        {
+//        }
+
+//        public EncryptDecryptExceptionWrongPassword(string message) : base(message)
+//        {
+//        }
+
+//        public EncryptDecryptExceptionWrongPassword(string message, Exception innerException) : base(message, innerException)
+//        {
+//        }
+
+//        protected EncryptDecryptExceptionWrongPassword(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) : base(info, context)
+//        {
+//        }
+//    }
+//#endif //UWP 
 
 }
