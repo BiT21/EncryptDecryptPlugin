@@ -1,5 +1,4 @@
-﻿using Plugin.EncryptDecrypt.Abstractions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,7 +28,7 @@ namespace Plugin.EncryptDecrypt
 
         static IEncryptDecrypt CreateFileService()
         {
-#if NETSTANDARD1_0
+#if PORTABLE
             return null;
 #else
         return new EncryptDecryptImplementation();
