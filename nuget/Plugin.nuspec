@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>BiT21.Xam.Plugin.FileService</id>
+    <version>1.0.0-alpha</version>
+    <authors>Raul G Dibildos</authors>
+    <owners>Raul G Dibildos</owners>
+    <licenseUrl>https://github.com/BiT21/FileServicePlugin/blob/Starting/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/BiT21/FileServicePlugin</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/BiT21/FileServicePlugin/develop/art/icon.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+        Easily have file system access from shared code using a common interface. Used by other plugins like JsonCache.
+    </description>
+    <releaseNotes>.</releaseNotes>
+    <summary>Easily have file system access from shared code using a common interface.</summary>
+    <tags>xamarin, pcl, xam.cpl, file system, file service, android, ios, windows, uwp, xamarin.forms</tags>
+    <copyright>Copyright 2017</copyright>
+    <dependencies>
+      <group targetFramework="net">
+            <dependency id="Newtonsoft.Json" version="10.0.3" />
+       </group>
+       <group targetFramework="win">
+              <dependency id="Newtonsoft.Json" version="10.0.3" />       
+       </group>      
+       <group targetFramework="netstandard1.0">
+                <dependency id="Newtonsoft.Json" version="10.0.3" />         
+       </group>
+       <group targetFramework="MonoAndroid10">
+             <dependency id="Newtonsoft.Json" version="10.0.3" />        
+       </group>
+       <group targetFramework="Xamarin.iOS10">
+             <dependency id="Newtonsoft.Json" version="10.0.3" />       
+       </group>       
+       <group targetFramework="portable-net45+win+wpa81+wp80">
+             <dependency id="Newtonsoft.Json" version="10.0.3" />       
+       </group>
+       <group targetFramework="uap">
+             <dependency id="Newtonsoft.Json" version="10.0.3" />      
+       </group>
+       <group targetFramework="dotnet">
+             <dependency id="Newtonsoft.Json" version="10.0.3" />             
+       </group>
+    </dependencies>
+  </metadata>
+  <files>
+      <!--Core-->
+      <file src="..\src\FileService\Plugin.FileService\bin\Release\Plugin.FileService.*" target="lib\portable-net45+wp80+win8+wpa81" />
+
+      <!--Xamarin.Android-->
+      <file src="..\src\FileService\Plugin.FileService.Android\bin\Release\Plugin.FileService.*" target="lib\MonoAndroid10" />
+ 
+      <!--Xamarin.iOS-->
+      <file src="..\src\FileService\Plugin.FileService.iOS\bin\iPhone\Release\Plugin.FileService.*" target="lib\Xamarin.iOS10" />
+       
+      <!--UWP-->
+      <file src="..\src\FileService\Plugin.FileService.UWP\bin\Release\Plugin.FileService.*" target="lib\UAP10" />
+
+      <!--NET-->
+      <file src="..\src\FileService\Plugin.FileService.NET\bin\Release\Plugin.FileService.*" target="lib\net45" />
+
+  </files>
+</package>
