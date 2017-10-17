@@ -35,7 +35,7 @@ namespace Plugin.EncryptDecrypt
             {
                 byte[] keys = GetKey(password);
 
-                var ret = Decrypt(data, keys);
+                var ret = Decrypt(keys, data);
 
                 if (!ret.StartsWith(START_PADDING))
                     throw new Exception("Starting padding does not match");
@@ -52,8 +52,8 @@ namespace Plugin.EncryptDecrypt
             }
         }
 
-        protected abstract string Encrypt(byte[] keys, string data);
-        protected abstract string Decrypt(string data2, byte[] keys);
+        protected abstract byte[] Encrypt(byte[] keys, byte[] data);
+        protected abstract byte[] Decrypt(byte[] keys, byte[] data);
         protected abstract byte[] GetKey(string password);
     }
 }

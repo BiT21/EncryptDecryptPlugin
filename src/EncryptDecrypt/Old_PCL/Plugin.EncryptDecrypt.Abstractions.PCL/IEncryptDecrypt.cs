@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Plugin.EncryptDecrypt
+namespace Plugin.EncryptDecrypt.Abstractions
 {
     public interface IEncryptDecrypt
     {

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2002
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.EncryptDecrypt.iOS", "EncryptDecrypt\Plugin.EncryptDecrypt.iOS\Plugin.EncryptDecrypt.iOS.csproj", "{2882AEEB-D4CD-4EB9-8A6C-6653B33681F0}"
 EndProject
@@ -16,6 +16,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{52DF7DF5-62EB-42F5-87B7-F0742705219E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.EncryptDecrypt.Test", "EncryptDecryptTest\Plugin.EncryptDecrypt.Test\Plugin.EncryptDecrypt.Test.csproj", "{F0B6AE69-9ECE-4EEA-A7E9-BC11756669DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.EncryptDecrypt.UWP", "EncryptDecrypt\Plugin.EncryptDecrypt.UWP\Plugin.EncryptDecrypt.UWP.csproj", "{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.EncryptDecrypt.Abstractions.PCL", "EncryptDecrypt\Old_PCL\Plugin.EncryptDecrypt.Abstractions.PCL\Plugin.EncryptDecrypt.Abstractions.PCL.csproj", "{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -125,6 +129,38 @@ Global
 		{F0B6AE69-9ECE-4EEA-A7E9-BC11756669DA}.Release|x64.Build.0 = Release|Any CPU
 		{F0B6AE69-9ECE-4EEA-A7E9-BC11756669DA}.Release|x86.ActiveCfg = Release|Any CPU
 		{F0B6AE69-9ECE-4EEA-A7E9-BC11756669DA}.Release|x86.Build.0 = Release|Any CPU
+		{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}.Debug|ARM.ActiveCfg = Debug|ARM
+		{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}.Debug|ARM.Build.0 = Debug|ARM
+		{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}.Debug|x64.ActiveCfg = Debug|x64
+		{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}.Debug|x64.Build.0 = Debug|x64
+		{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}.Debug|x86.ActiveCfg = Debug|x86
+		{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}.Debug|x86.Build.0 = Debug|x86
+		{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}.Release|ARM.ActiveCfg = Release|ARM
+		{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}.Release|ARM.Build.0 = Release|ARM
+		{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}.Release|x64.ActiveCfg = Release|x64
+		{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}.Release|x64.Build.0 = Release|x64
+		{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}.Release|x86.ActiveCfg = Release|x86
+		{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}.Release|x86.Build.0 = Release|x86
+		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Debug|ARM.Build.0 = Debug|Any CPU
+		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Debug|x64.Build.0 = Debug|Any CPU
+		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Debug|x86.Build.0 = Debug|Any CPU
+		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Release|ARM.ActiveCfg = Release|Any CPU
+		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Release|ARM.Build.0 = Release|Any CPU
+		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Release|x64.ActiveCfg = Release|Any CPU
+		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Release|x64.Build.0 = Release|Any CPU
+		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Release|x86.ActiveCfg = Release|Any CPU
+		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

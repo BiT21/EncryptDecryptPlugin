@@ -9,20 +9,11 @@ using System.Threading.Tasks;
 namespace Plugin.EncryptDecrypt
 {
 
-#if NETSTANDARD1_0 || WINDOWS_UWP
+#if __NETSTANDARD__
     public class EncryptDecryptImplementation : EncryptDecryptBase, IEncryptDecrypt
     {
-        Task<string> IEncryptDecrypt.DecryptStringAsync(string password, string data)
-        {
-            throw new NotImplementedException();
-        }
 
-        Task<string> IEncryptDecrypt.EncryptStringAsync(string password, string data)
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override string Decrypt(string data2, byte[] keys)
+        protected override string Decrypt(byte[] keys, string data2)
         {
             throw new NotImplementedException();
         }
@@ -37,13 +28,62 @@ namespace Plugin.EncryptDecrypt
             throw new NotImplementedException();
         }
     }
+#endif
 
-#else
-    using System.Security.Cryptography;
+#if WINDOWS_UWP
+    using Windows.Security.Cryptography;
+    using Windows.Security.Cryptography.Core;
+    using Windows.Storage.Streams;
 
     public class EncryptDecryptImplementation : EncryptDecryptBase, IEncryptDecrypt
     {
+        protected override byte[] Decrypt(byte[] keys, byte[] data)
+        {
+            IBuffer data2Decrypt = CryptographicBuffer.CreateFromByteArray(data);
+            IBuffer keyMaterial = CryptographicBuffer.CreateFromByteArray(keys);
 
+            SymmetricKeyAlgorithmProvider objAlg = SymmetricKeyAlgorithmProvider.OpenAlgorithm(SymmetricAlgorithmNames.TripleDesEcbPkcs7);
+            var key = objAlg.CreateSymmetricKey(keyMaterial);
+
+            var ret = CryptographicEngine.Decrypt(key, data2Decrypt, null);
+
+            CryptographicBuffer.CopyToByteArray(ret, out byte[] byteRet);
+            return byteRet;
+        }
+
+        protected override byte[] Encrypt(byte[] keys, byte[] data)
+        {
+            IBuffer data2Encrypt = CryptographicBuffer.CreateFromByteArray(data);
+            IBuffer keyMaterial = CryptographicBuffer.CreateFromByteArray(keys);
+
+            SymmetricKeyAlgorithmProvider objAlg = SymmetricKeyAlgorithmProvider.OpenAlgorithm(SymmetricAlgorithmNames.TripleDesEcbPkcs7);
+            var key = objAlg.CreateSymmetricKey(keyMaterial);
+
+            var ret = CryptographicEngine.Encrypt(key, data2Encrypt, null);
+
+            CryptographicBuffer.CopyToByteArray(ret, out byte[] byteRet);
+            return byteRet;
+        }
+
+        protected override byte[] GetKey(string password)
+        {
+            IBuffer buffUtf8Msg = CryptographicBuffer.ConvertStringToBinary(password, BinaryStringEncoding.Utf8);
+
+            HashAlgorithmProvider objAlgProv = HashAlgorithmProvider.OpenAlgorithm(HashAlgorithmNames.Md5);
+
+            IBuffer buffHash = objAlgProv.HashData(buffUtf8Msg);
+
+            CryptographicBuffer.CopyToByteArray(buffHash, out byte[] byteRet);
+
+            return byteRet;
+        }
+    }
+#endif
+
+#if __ANDROID__ || __IOS__ || __NET__
+    using System.Security.Cryptography;
+    public class EncryptDecryptImplementation : EncryptDecryptBase, IEncryptDecrypt
+    {
         protected override string Encrypt(byte[] keys, string data)
         {
             byte[] d = UTF8Encoding.UTF8.GetBytes(data);
@@ -55,16 +95,16 @@ namespace Plugin.EncryptDecrypt
                 return Convert.ToBase64String(results, 0, results.Length);
             }
         }
-        protected override string Decrypt(string data2, byte[] keys)
+        protected override string Decrypt(byte[] keys, string data)
         {
             try
             {
-                byte[] data = Convert.FromBase64String(data2);
+                byte[] dataBytes = Convert.FromBase64String(data);
 
                 using (TripleDESCryptoServiceProvider tripDes = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
                 {
                     ICryptoTransform transform = tripDes.CreateDecryptor();
-                    byte[] results = transform.TransformFinalBlock(data, 0, data.Length);
+                    byte[] results = transform.TransformFinalBlock(dataBytes, 0, dataBytes.Length);
                     return UTF8Encoding.UTF8.GetString(results);
                 }
             }
@@ -73,10 +113,9 @@ namespace Plugin.EncryptDecrypt
                 if (cx.Message.StartsWith("Bad Data."))
                     throw new EncryptDecryptExceptionWrongPassword("WrongPassword", cx);
                 else
-                    throw new testexception();
+                    throw;
             }
         }
-
         protected override byte[] GetKey(string password)
         {
             using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
@@ -84,25 +123,8 @@ namespace Plugin.EncryptDecrypt
                 return md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(password));
             }
         }
-
-
     }
-
-    internal class testexception : Exception
-    {
-        public testexception()
-        {
-        }
-
-        public testexception(string message) : base(message)
-        {
-        }
-
-        public testexception(string message, Exception innerException) : base(message, innerException)
-        {
-        }
-    }
-#endif //Class
+#endif
 
     internal class EncryptDecriptException : Exception
     {
