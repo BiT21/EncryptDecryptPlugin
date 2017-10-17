@@ -44,7 +44,7 @@ namespace Plugin.EncryptDecrypt
                 IBuffer data2Decrypt = CryptographicBuffer.CreateFromByteArray(data);
                 IBuffer keyMaterial = CryptographicBuffer.CreateFromByteArray(keys);
 
-                SymmetricKeyAlgorithmProvider objAlg = SymmetricKeyAlgorithmProvider.OpenAlgorithm(SymmetricAlgorithmNames.TripleDesEcbPkcs7);
+                SymmetricKeyAlgorithmProvider objAlg = SymmetricKeyAlgorithmProvider.OpenAlgorithm(SymmetricAlgorithmNames.AesEcbPkcs7);
                 var key = objAlg.CreateSymmetricKey(keyMaterial);
 
                 var ret = CryptographicEngine.Decrypt(key, data2Decrypt, null);
@@ -54,10 +54,7 @@ namespace Plugin.EncryptDecrypt
             }
             catch (Exception ex)
             {
-                if (ex.Message.StartsWith("Data error"))
-                    throw new EncryptDecryptExceptionWrongPassword("WrongPassword", ex);
-                else
-                    throw;
+                 throw new EncryptDecriptException("Error Decrypting data. WrongPassword or DataCorruption.", ex);
             }        
         }
 
@@ -65,11 +62,12 @@ namespace Plugin.EncryptDecrypt
         {
             IBuffer data2Encrypt = CryptographicBuffer.CreateFromByteArray(data);
             IBuffer keyMaterial = CryptographicBuffer.CreateFromByteArray(keys);
-//            IBuffer keyMaterial = CryptographicBuffer.GenerateRandom(16);
+            //IBuffer keyMaterial = CryptographicBuffer.GenerateRandom(16);
 
            CryptographicBuffer.CopyToByteArray(keyMaterial, out byte[] temp);
 
-            SymmetricKeyAlgorithmProvider objAlg = SymmetricKeyAlgorithmProvider.OpenAlgorithm(SymmetricAlgorithmNames.TripleDesEcbPkcs7);
+            SymmetricKeyAlgorithmProvider objAlg = SymmetricKeyAlgorithmProvider.OpenAlgorithm(SymmetricAlgorithmNames.AesEcbPkcs7);
+            
             var key = objAlg.CreateSymmetricKey(keyMaterial);
 
             var ret = CryptographicEngine.Encrypt(key, data2Encrypt, null);
@@ -119,15 +117,15 @@ namespace Plugin.EncryptDecrypt
     }
 #endif
 
-#if __ANDROID__ || __IOS__ || __NET__
+#if __ANDROID__ || __IOS__ || __NET__ 
     using System.Security.Cryptography;
     public class EncryptDecryptImplementation : EncryptDecryptBase, IEncryptDecrypt
     {
         protected override byte[] Encrypt(byte[] keys, byte[] data)
         {
-            using (TripleDESCryptoServiceProvider tripDes = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
+            using (var prov = new AesCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
             {
-                ICryptoTransform transform = tripDes.CreateEncryptor();
+                ICryptoTransform transform = prov.CreateEncryptor();
                 byte[] results = transform.TransformFinalBlock(data, 0, data.Length);
                 return results;
             }
@@ -136,30 +134,22 @@ namespace Plugin.EncryptDecrypt
         {
             try
             {
-                using (TripleDESCryptoServiceProvider tripDes = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
+                using (var prov = new AesCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
                 {
-                    ICryptoTransform transform = tripDes.CreateDecryptor();
+                    ICryptoTransform transform = prov.CreateDecryptor();
                     byte[] results = transform.TransformFinalBlock(data, 0, data.Length);
 
                     return results;
                 }
             }
-            catch (CryptographicException cx)
+            catch (Exception ex)
             {
-                if (cx.Message.StartsWith("Bad Data."))
-                    throw new EncryptDecryptExceptionWrongPassword("WrongPassword", cx);
-                else
-                    throw;
+                throw new EncryptDecriptException("Error Decrypting data. WrongPassword or DataCorruption.", ex);
             }
         }
         protected override byte[] GetKey(string password)
         {
-            //using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
-            //{
-            //    return md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(password));
-            //}
-            //using(var hashProv = new SHA256CryptoServiceProvider())
-            using(var hashProv = new MD5CryptoServiceProvider())
+            using(var hashProv = new SHA256CryptoServiceProvider())
             {
                 return hashProv.ComputeHash(UTF8Encoding.UTF8.GetBytes(password));
             }
@@ -167,7 +157,7 @@ namespace Plugin.EncryptDecrypt
     }
 #endif
 
-    internal class EncryptDecriptException : Exception
+    public class EncryptDecriptException : Exception
     {
         public EncryptDecriptException(string message) : base(message)
         {
@@ -177,7 +167,7 @@ namespace Plugin.EncryptDecrypt
         }
     }
 
-    internal class EncryptDecryptExceptionDataCorruption : Exception
+    public class EncryptDecryptExceptionDataCorruption : Exception
     {
         public EncryptDecryptExceptionDataCorruption(string message) : base(message)
         {
@@ -187,107 +177,15 @@ namespace Plugin.EncryptDecrypt
         }
     }
 
-    internal class EncryptDecryptExceptionWrongPassword : Exception
-    {
-        public EncryptDecryptExceptionWrongPassword(string message) : base(message)
-        {
-        }
-        public EncryptDecryptExceptionWrongPassword(string message, Exception innerException) : base(message, innerException)
-        {
-        }
-    }
-    
-//#if WINDOWS_UWP || NETSTANDARD1_0
-//    internal class EncryptDecriptException : Exception
-//    {
-//        public EncryptDecriptException(string message) : base(message)
-//        {
-//        }
-//        public EncryptDecriptException(string message, Exception innerException) : base(message, innerException)
-//        {
-//        }
-//    }
+    //public class EncryptDecryptExceptionWrongPassword : Exception
+    //{
+    //    public EncryptDecryptExceptionWrongPassword(string message) : base(message)
+    //    {
+    //    }
+    //    public EncryptDecryptExceptionWrongPassword(string message, Exception innerException) : base(message, innerException)
+    //    {
+    //    }
+    //}  
 
-//    internal class EncryptDecryptExceptionDataCorruption : Exception
-//    {
-//        public EncryptDecryptExceptionDataCorruption(string message) : base(message)
-//        {
-//        }
-//        public EncryptDecryptExceptionDataCorruption(string message, Exception innerException) : base(message, innerException)
-//        {
-//        }
-
-//    }
-
-//    internal class EncryptDecryptExceptionWrongPassword : Exception
-//    {
-//        public EncryptDecryptExceptionWrongPassword(string message) : base(message)
-//        {
-//        }
-//        public EncryptDecryptExceptionWrongPassword(string message, Exception innerException) : base(message, innerException)
-//        {
-//        }
-//    }
-//#else
-//    [Serializable]
-//    internal class EncryptDecriptException : Exception
-//    {
-//        public EncryptDecriptException()
-//        {
-//        }
-
-//        public EncryptDecriptException(string message) : base(message)
-//        {
-//        }
-
-//        public EncryptDecriptException(string message, Exception innerException) : base(message, innerException)
-//        {
-//        }
-
-//        protected EncryptDecriptException(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) : base(info, context)
-//        {
-//        }
-//    }
-
-//    [Serializable]
-//    internal class EncryptDecryptExceptionDataCorruption : Exception
-//    {
-//        public EncryptDecryptExceptionDataCorruption()
-//        {
-//        }
-
-//        public EncryptDecryptExceptionDataCorruption(string message) : base(message)
-//        {
-//        }
-
-//        public EncryptDecryptExceptionDataCorruption(string message, Exception innerException) : base(message, innerException)
-//        {
-//        }
-
-//        protected EncryptDecryptExceptionDataCorruption(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) : base(info, context)
-//        {
-//        }
-//    }
-
-//    [Serializable]
-//    internal class EncryptDecryptExceptionWrongPassword : Exception
-//    {
-//        public EncryptDecryptExceptionWrongPassword()
-//        {
-//        }
-
-//        public EncryptDecryptExceptionWrongPassword(string message) : base(message)
-//        {
-//        }
-
-//        public EncryptDecryptExceptionWrongPassword(string message, Exception innerException) : base(message, innerException)
-//        {
-//        }
-
-//        protected EncryptDecryptExceptionWrongPassword(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) : base(info, context)
-//        {
-//        }
-//    }
-//#endif //UWP 
 
 }

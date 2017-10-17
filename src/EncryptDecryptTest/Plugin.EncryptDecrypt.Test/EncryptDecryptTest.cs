@@ -64,7 +64,7 @@ namespace Plugin.EncryptDecrypt.NET.Test
             catch (Exception ex)
             {
                 Trace.WriteLine($"catch : {ex.Message}");
-                Assert.AreEqual(ex.Message, "WrongPassword");
+                Assert.IsTrue(ex is EncryptDecriptException);
             }
             
         }
@@ -95,9 +95,8 @@ namespace Plugin.EncryptDecrypt.NET.Test
             catch (Exception ex)
             {
                 Trace.WriteLine($"catch : {ex.Message}");
-                Assert.AreEqual(ex.Message, "WrongPassword");
+                Assert.IsTrue(ex is EncryptDecriptException);
             }
-
         }
 
         //[ExpectedException(typeof(CryptographicException))]
@@ -129,9 +128,7 @@ namespace Plugin.EncryptDecrypt.NET.Test
             catch (Exception ex)
             {
                 Trace.WriteLine($"catch : {ex.Message}");
-                Assert.AreEqual("WrongPassword", ex.Message);
-                //Assert.IsTrue(ex.InnerException is CryptographicException);
-                //Assert.IsTrue(ex.InnerException.Message.StartsWith("Bad Data."));
+                Assert.IsTrue(ex is EncryptDecriptException);
             }
         }
 
@@ -167,8 +164,28 @@ namespace Plugin.EncryptDecrypt.NET.Test
             catch (Exception ex)
             {
                 Trace.WriteLine($"catch : {ex.Message}");
-                Assert.AreEqual("DataCorruption", ex.Message);
+                Assert.IsTrue(ex is EncryptDecryptExceptionDataCorruption);
             }
+
+        }
+
+        [TestMethod]
+        public async Task EncryptDecrypt_StaticData_Test()
+        {
+            string pwd = "password1234";
+            Trace.WriteLine($"Password : {pwd}");
+
+            string data = "69ace84c-cf8f-4789-8a66-984a7bbc9cfb";
+            Trace.WriteLine($"Data : {data}");
+
+            //This cipher was encrypted by Windows_UWP version.
+            var encryptedData = "TccVNZjsQ06QPw5R0qZ97buDeUswUVc41f1iUO50CRPvqIhDLrr952AstERaHxAfgYF9aV6UegQ+FG3SgoG5JzbsA2q0i/7h2penDUF2l7M=";
+
+            string e = await encryptDecrypt.EncryptStringAsync(pwd, data);
+            Assert.AreEqual(e, encryptedData);
+
+            string ret = await encryptDecrypt.DecryptStringAsync(pwd, encryptedData);
+            Assert.AreEqual(ret, data);
 
         }
     }

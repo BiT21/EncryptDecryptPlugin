@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugin.EncryptDecrypt.Abstr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{52DF7DF5-62EB-42F5-87B7-F0742705219E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.EncryptDecrypt.Test", "EncryptDecryptTest\Plugin.EncryptDecrypt.Test\Plugin.EncryptDecrypt.Test.csproj", "{F0B6AE69-9ECE-4EEA-A7E9-BC11756669DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.EncryptDecrypt.NET.Test", "EncryptDecryptTest\Plugin.EncryptDecrypt.Test\Plugin.EncryptDecrypt.NET.Test.csproj", "{F0B6AE69-9ECE-4EEA-A7E9-BC11756669DA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.EncryptDecrypt.UWP", "EncryptDecrypt\Plugin.EncryptDecrypt.UWP\Plugin.EncryptDecrypt.UWP.csproj", "{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}"
 EndProject

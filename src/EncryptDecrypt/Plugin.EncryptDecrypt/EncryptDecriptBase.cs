@@ -44,17 +44,17 @@ namespace Plugin.EncryptDecrypt
                 var ret = UTF8Encoding.UTF8.GetString(results);
 
                 if (!ret.StartsWith(START_PADDING))
-                    throw new Exception("Starting padding does not match");
+                    throw new EncryptDecryptExceptionDataCorruption("Starting padding does not match");
 
                 return Task.FromResult(ret.Substring(START_PADDING.Length));
             }
-            catch (EncryptDecryptExceptionWrongPassword)
+            catch (EncryptDecryptExceptionDataCorruption)
             {
                 throw;
             }
             catch (Exception ex)
             {
-                throw new EncryptDecryptExceptionDataCorruption("DataCorruption", ex);
+                throw new EncryptDecriptException("Unexpected exception", ex);
             }
         }
 
