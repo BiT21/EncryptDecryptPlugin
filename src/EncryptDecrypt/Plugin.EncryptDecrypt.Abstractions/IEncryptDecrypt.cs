@@ -10,9 +10,8 @@ namespace Plugin.EncryptDecrypt.Abstractions
         /// <param name="password"></param>
         /// <param name="data"></param>
         /// <returns>Decripted string.</returns>
-        /// <exception cref="EncryptDecryptExceptionDataCorruption">Thrown when the data provided has been modified since the encryption.</exception>
-        /// <exception cref="EncryptDecryptExceptionWrongPassword">Thrown when password does not match the encrypting password</exception>
-        /// <exception cref="EncryptDecriptException">General error exception.</exception>
+        /// <exception cref="EncryptDecryptExceptionDataCorruption">Thrown when is detected that the data provided has been modified since the encryption.</exception>        
+        /// <exception cref="EncryptDecriptException">General error decrypting. It could be wrong password.</exception>
         Task<string> DecryptStringAsync(string password, string data);
 
         /// <summary>
