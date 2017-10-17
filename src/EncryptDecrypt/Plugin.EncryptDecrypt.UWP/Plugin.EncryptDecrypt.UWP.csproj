@@ -120,13 +120,13 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>5.0.0</Version>
+      <Version>6.0.1</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Old_PCL\Plugin.EncryptDecrypt.Abstractions.PCL\Plugin.EncryptDecrypt.Abstractions.PCL.csproj">
-      <Project>{6edb0588-ffc5-4ef5-8a99-9e241d0f878d}</Project>
-      <Name>Plugin.EncryptDecrypt.Abstractions.PCL</Name>
+    <ProjectReference Include="..\Plugin.EncryptDecrypt.Abstractions\Plugin.EncryptDecrypt.Abstractions.csproj">
+      <Project>{6ce295d0-7550-4ecf-93b5-f960119028f5}</Project>
+      <Name>Plugin.EncryptDecrypt.Abstractions</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

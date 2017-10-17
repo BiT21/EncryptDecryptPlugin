@@ -19,8 +19,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.EncryptDecrypt.Test"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.EncryptDecrypt.UWP", "EncryptDecrypt\Plugin.EncryptDecrypt.UWP\Plugin.EncryptDecrypt.UWP.csproj", "{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.EncryptDecrypt.Abstractions.PCL", "EncryptDecrypt\Old_PCL\Plugin.EncryptDecrypt.Abstractions.PCL\Plugin.EncryptDecrypt.Abstractions.PCL.csproj", "{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -145,22 +143,6 @@ Global
 		{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}.Release|x64.Build.0 = Release|x64
 		{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}.Release|x86.ActiveCfg = Release|x86
 		{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}.Release|x86.Build.0 = Release|x86
-		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Debug|ARM.Build.0 = Debug|Any CPU
-		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Debug|x64.Build.0 = Debug|Any CPU
-		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Debug|x86.Build.0 = Debug|Any CPU
-		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Release|ARM.ActiveCfg = Release|Any CPU
-		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Release|ARM.Build.0 = Release|Any CPU
-		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Release|x64.ActiveCfg = Release|Any CPU
-		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Release|x64.Build.0 = Release|Any CPU
-		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Release|x86.ActiveCfg = Release|Any CPU
-		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

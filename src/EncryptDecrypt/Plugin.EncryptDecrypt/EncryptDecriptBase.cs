@@ -17,9 +17,12 @@ namespace Plugin.EncryptDecrypt
         {
             try
             {
+                byte[] data2Encrypt = UTF8Encoding.UTF8.GetBytes(START_PADDING + data);
                 byte[] keys = GetKey(password);
 
-                var ret = Encrypt(keys, START_PADDING + data);
+                var results = Encrypt(keys, data2Encrypt);
+
+                var ret = Convert.ToBase64String(results, 0, results.Length);
 
                 return Task.FromResult(ret);
             }
@@ -34,8 +37,11 @@ namespace Plugin.EncryptDecrypt
             try
             {
                 byte[] keys = GetKey(password);
+                byte[] data2Decrypt = Convert.FromBase64String(data);
 
-                var ret = Decrypt(keys, data);
+                var results = Decrypt(keys, data2Decrypt);
+
+                var ret = UTF8Encoding.UTF8.GetString(results);
 
                 if (!ret.StartsWith(START_PADDING))
                     throw new Exception("Starting padding does not match");

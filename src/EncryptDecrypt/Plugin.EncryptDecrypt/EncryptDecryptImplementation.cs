@@ -13,12 +13,12 @@ namespace Plugin.EncryptDecrypt
     public class EncryptDecryptImplementation : EncryptDecryptBase, IEncryptDecrypt
     {
 
-        protected override string Decrypt(byte[] keys, string data2)
+        protected override byte[] Decrypt(byte[] keys, byte[] data)
         {
             throw new NotImplementedException();
         }
 
-        protected override string Encrypt(byte[] keys, string data)
+        protected override byte[] Encrypt(byte[] keys, byte[] data)
         {
             throw new NotImplementedException();
         }
@@ -84,28 +84,25 @@ namespace Plugin.EncryptDecrypt
     using System.Security.Cryptography;
     public class EncryptDecryptImplementation : EncryptDecryptBase, IEncryptDecrypt
     {
-        protected override string Encrypt(byte[] keys, string data)
+        protected override byte[] Encrypt(byte[] keys, byte[] data)
         {
-            byte[] d = UTF8Encoding.UTF8.GetBytes(data);
-
             using (TripleDESCryptoServiceProvider tripDes = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
             {
                 ICryptoTransform transform = tripDes.CreateEncryptor();
-                byte[] results = transform.TransformFinalBlock(d, 0, d.Length);
-                return Convert.ToBase64String(results, 0, results.Length);
+                byte[] results = transform.TransformFinalBlock(data, 0, data.Length);
+                return results;
             }
         }
-        protected override string Decrypt(byte[] keys, string data)
+        protected override byte[] Decrypt(byte[] keys, byte[] data)
         {
             try
             {
-                byte[] dataBytes = Convert.FromBase64String(data);
-
                 using (TripleDESCryptoServiceProvider tripDes = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
                 {
                     ICryptoTransform transform = tripDes.CreateDecryptor();
-                    byte[] results = transform.TransformFinalBlock(dataBytes, 0, dataBytes.Length);
-                    return UTF8Encoding.UTF8.GetString(results);
+                    byte[] results = transform.TransformFinalBlock(data, 0, data.Length);
+
+                    return results;
                 }
             }
             catch (CryptographicException cx)
