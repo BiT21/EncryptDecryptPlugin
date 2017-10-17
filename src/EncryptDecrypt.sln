@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.EncryptDecrypt.Test"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.EncryptDecrypt.UWP", "EncryptDecrypt\Plugin.EncryptDecrypt.UWP\Plugin.EncryptDecrypt.UWP.csproj", "{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.EncryptDecrypt.UWP.Test", "EncryptDecryptTest\Plugin.EncryptDecrypt.UWP.Test\Plugin.EncryptDecrypt.UWP.Test.csproj", "{EB30280F-8393-4865-B416-F33367ADEC7D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -143,12 +145,33 @@ Global
 		{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}.Release|x64.Build.0 = Release|x64
 		{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}.Release|x86.ActiveCfg = Release|x86
 		{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}.Release|x86.Build.0 = Release|x86
+		{EB30280F-8393-4865-B416-F33367ADEC7D}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{EB30280F-8393-4865-B416-F33367ADEC7D}.Debug|ARM.ActiveCfg = Debug|ARM
+		{EB30280F-8393-4865-B416-F33367ADEC7D}.Debug|ARM.Build.0 = Debug|ARM
+		{EB30280F-8393-4865-B416-F33367ADEC7D}.Debug|ARM.Deploy.0 = Debug|ARM
+		{EB30280F-8393-4865-B416-F33367ADEC7D}.Debug|x64.ActiveCfg = Debug|x64
+		{EB30280F-8393-4865-B416-F33367ADEC7D}.Debug|x64.Build.0 = Debug|x64
+		{EB30280F-8393-4865-B416-F33367ADEC7D}.Debug|x64.Deploy.0 = Debug|x64
+		{EB30280F-8393-4865-B416-F33367ADEC7D}.Debug|x86.ActiveCfg = Debug|x86
+		{EB30280F-8393-4865-B416-F33367ADEC7D}.Debug|x86.Build.0 = Debug|x86
+		{EB30280F-8393-4865-B416-F33367ADEC7D}.Debug|x86.Deploy.0 = Debug|x86
+		{EB30280F-8393-4865-B416-F33367ADEC7D}.Release|Any CPU.ActiveCfg = Release|x86
+		{EB30280F-8393-4865-B416-F33367ADEC7D}.Release|ARM.ActiveCfg = Release|ARM
+		{EB30280F-8393-4865-B416-F33367ADEC7D}.Release|ARM.Build.0 = Release|ARM
+		{EB30280F-8393-4865-B416-F33367ADEC7D}.Release|ARM.Deploy.0 = Release|ARM
+		{EB30280F-8393-4865-B416-F33367ADEC7D}.Release|x64.ActiveCfg = Release|x64
+		{EB30280F-8393-4865-B416-F33367ADEC7D}.Release|x64.Build.0 = Release|x64
+		{EB30280F-8393-4865-B416-F33367ADEC7D}.Release|x64.Deploy.0 = Release|x64
+		{EB30280F-8393-4865-B416-F33367ADEC7D}.Release|x86.ActiveCfg = Release|x86
+		{EB30280F-8393-4865-B416-F33367ADEC7D}.Release|x86.Build.0 = Release|x86
+		{EB30280F-8393-4865-B416-F33367ADEC7D}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F0B6AE69-9ECE-4EEA-A7E9-BC11756669DA} = {52DF7DF5-62EB-42F5-87B7-F0742705219E}
+		{EB30280F-8393-4865-B416-F33367ADEC7D} = {52DF7DF5-62EB-42F5-87B7-F0742705219E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7C05F0EE-9262-4921-B604-9A8C2BA24402}

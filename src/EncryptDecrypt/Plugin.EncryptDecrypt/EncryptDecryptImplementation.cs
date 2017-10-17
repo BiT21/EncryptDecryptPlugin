@@ -39,22 +39,35 @@ namespace Plugin.EncryptDecrypt
     {
         protected override byte[] Decrypt(byte[] keys, byte[] data)
         {
-            IBuffer data2Decrypt = CryptographicBuffer.CreateFromByteArray(data);
-            IBuffer keyMaterial = CryptographicBuffer.CreateFromByteArray(keys);
+            try
+            {
+                IBuffer data2Decrypt = CryptographicBuffer.CreateFromByteArray(data);
+                IBuffer keyMaterial = CryptographicBuffer.CreateFromByteArray(keys);
 
-            SymmetricKeyAlgorithmProvider objAlg = SymmetricKeyAlgorithmProvider.OpenAlgorithm(SymmetricAlgorithmNames.TripleDesEcbPkcs7);
-            var key = objAlg.CreateSymmetricKey(keyMaterial);
+                SymmetricKeyAlgorithmProvider objAlg = SymmetricKeyAlgorithmProvider.OpenAlgorithm(SymmetricAlgorithmNames.TripleDesEcbPkcs7);
+                var key = objAlg.CreateSymmetricKey(keyMaterial);
 
-            var ret = CryptographicEngine.Decrypt(key, data2Decrypt, null);
+                var ret = CryptographicEngine.Decrypt(key, data2Decrypt, null);
 
-            CryptographicBuffer.CopyToByteArray(ret, out byte[] byteRet);
-            return byteRet;
+                CryptographicBuffer.CopyToByteArray(ret, out byte[] byteRet);
+                return byteRet;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.StartsWith("Data error"))
+                    throw new EncryptDecryptExceptionWrongPassword("WrongPassword", ex);
+                else
+                    throw;
+            }        
         }
 
         protected override byte[] Encrypt(byte[] keys, byte[] data)
         {
             IBuffer data2Encrypt = CryptographicBuffer.CreateFromByteArray(data);
             IBuffer keyMaterial = CryptographicBuffer.CreateFromByteArray(keys);
+//            IBuffer keyMaterial = CryptographicBuffer.GenerateRandom(16);
+
+           CryptographicBuffer.CopyToByteArray(keyMaterial, out byte[] temp);
 
             SymmetricKeyAlgorithmProvider objAlg = SymmetricKeyAlgorithmProvider.OpenAlgorithm(SymmetricAlgorithmNames.TripleDesEcbPkcs7);
             var key = objAlg.CreateSymmetricKey(keyMaterial);
@@ -69,7 +82,7 @@ namespace Plugin.EncryptDecrypt
         {
             IBuffer buffUtf8Msg = CryptographicBuffer.ConvertStringToBinary(password, BinaryStringEncoding.Utf8);
 
-            HashAlgorithmProvider objAlgProv = HashAlgorithmProvider.OpenAlgorithm(HashAlgorithmNames.Md5);
+            HashAlgorithmProvider objAlgProv = HashAlgorithmProvider.OpenAlgorithm(HashAlgorithmNames.Sha256);
 
             IBuffer buffHash = objAlgProv.HashData(buffUtf8Msg);
 
@@ -77,6 +90,32 @@ namespace Plugin.EncryptDecrypt
 
             return byteRet;
         }
+
+        //protected override byte[] GetKey(string password)
+        //{
+        //    // Create a string that contains the algorithm name.
+        //    string strAlgName = KeyDerivationAlgorithmNames.Pbkdf2Sha1;
+        //    // Open the specified algorithm.
+        //    KeyDerivationAlgorithmProvider objKdfProv = KeyDerivationAlgorithmProvider.OpenAlgorithm(strAlgName);
+        //    // Specify the requested size, in bytes, of the derived key. 
+        //    UInt32 targetSize = 24;
+        //    // Create a buffer that contains the secret used during derivation.
+        //    String strSecret = "SomeSecret";   //Change and move somewhere else
+        //    IBuffer buffSecret = CryptographicBuffer.ConvertStringToBinary(strSecret, BinaryStringEncoding.Utf8);
+        //    // Create a random salt value.
+        //    String strSalt = "SaltValue"; //change and move somewhere else
+        //    IBuffer buffSalt = CryptographicBuffer.ConvertStringToBinary(strSalt, BinaryStringEncoding.Utf8);
+        //    // Specify the number of iterations to be used during derivation.
+        //    UInt32 iterationCountIn = 5000;
+        //    // Create the derivation parameters.
+        //    KeyDerivationParameters pbkdf2Params = KeyDerivationParameters.BuildForPbkdf2(buffSalt, iterationCountIn);
+        //    // Create a key from the secret value.
+        //    CryptographicKey keyOriginal = objKdfProv.CreateKey(buffSecret);
+        //    // Derive a key based on the original key and the derivation parameters.
+        //    IBuffer keyDerived = CryptographicEngine.DeriveKeyMaterial(keyOriginal, pbkdf2Params, targetSize);
+
+        //    return keyDerived;
+        //}
     }
 #endif
 
@@ -115,9 +154,14 @@ namespace Plugin.EncryptDecrypt
         }
         protected override byte[] GetKey(string password)
         {
-            using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
+            //using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
+            //{
+            //    return md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(password));
+            //}
+            //using(var hashProv = new SHA256CryptoServiceProvider())
+            using(var hashProv = new MD5CryptoServiceProvider())
             {
-                return md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(password));
+                return hashProv.ComputeHash(UTF8Encoding.UTF8.GetBytes(password));
             }
         }
     }
