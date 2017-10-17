@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>BiT21.Xam.Plugin.FileService</id>
+    <id>BiT21.CrossPlatform.Plugin.EncryptDecrypt</id>
     <version>1.0.0-alpha</version>
     <authors>Raul G Dibildos</authors>
     <owners>Raul G Dibildos</owners>
-    <licenseUrl>https://github.com/BiT21/FileServicePlugin/blob/Starting/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/BiT21/FileServicePlugin</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/BiT21/FileServicePlugin/develop/art/icon.png</iconUrl>
+    <licenseUrl>https://github.com/BiT21/EncryptDecryptPlugin/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/BiT21/EncryptDecryptPlugin</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/BiT21/EncryptDecryptPlugin/master/art/icon.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
         Easily have file system access from shared code using a common interface. Used by other plugins like JsonCache.
     </description>
     <releaseNotes>.</releaseNotes>
-    <summary>Easily have file system access from shared code using a common interface.</summary>
-    <tags>xamarin, pcl, xam.cpl, file system, file service, android, ios, windows, uwp, xamarin.forms</tags>
+    <summary>Easily to secure a string data using a string password.</summary>
+    <tags>xamarin, pcl, xam.cpl, file system, encrypt, decrypt, password, .NETFramework, backend, android, ios, windows, uwp, xamarin.forms</tags>
     <copyright>Copyright 2017</copyright>
     <dependencies>
       <group targetFramework="net">
@@ -45,19 +45,19 @@
   </metadata>
   <files>
       <!--Core-->
-      <file src="..\src\FileService\Plugin.FileService\bin\Release\Plugin.FileService.*" target="lib\portable-net45+wp80+win8+wpa81" />
+      <file src="..\src\EncryptDecrypt\Plugin.EncryptDecrypt\bin\Release\Plugin.EncryptDecrypt.*" target="lib\portable-net45+wp80+win8+wpa81" />
 
       <!--Xamarin.Android-->
-      <file src="..\src\FileService\Plugin.FileService.Android\bin\Release\Plugin.FileService.*" target="lib\MonoAndroid10" />
+      <file src="..\src\EncryptDecrypt\Plugin.EncryptDecrypt.Android\bin\Release\Plugin.EncryptDecrypt.*" target="lib\MonoAndroid10" />
  
       <!--Xamarin.iOS-->
-      <file src="..\src\FileService\Plugin.FileService.iOS\bin\iPhone\Release\Plugin.FileService.*" target="lib\Xamarin.iOS10" />
+      <file src="..\src\EncryptDecrypt\Plugin.EncryptDecrypt.iOS\bin\iPhone\Release\Plugin.EncryptDecrypt.*" target="lib\Xamarin.iOS10" />
        
       <!--UWP-->
-      <file src="..\src\FileService\Plugin.FileService.UWP\bin\Release\Plugin.FileService.*" target="lib\UAP10" />
+      <file src="..\src\EncryptDecrypt\Plugin.EncryptDecrypt.UWP\bin\Release\Plugin.EncryptDecrypt.*" target="lib\UAP10" />
 
       <!--NET-->
-      <file src="..\src\FileService\Plugin.FileService.NET\bin\Release\Plugin.FileService.*" target="lib\net45" />
+      <file src="..\src\EncryptDecrypt\Plugin.EncryptDecrypt.NET\bin\Release\Plugin.EncryptDecrypt.*" target="lib\net45" />
 
   </files>
 </package>
