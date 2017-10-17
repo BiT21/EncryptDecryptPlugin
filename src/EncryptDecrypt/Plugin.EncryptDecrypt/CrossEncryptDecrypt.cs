@@ -9,7 +9,7 @@ namespace Plugin.EncryptDecrypt
 {
     public class CrossEncryptDecrypt
     {
-        static Lazy<IEncryptDecrypt> Implementation = new Lazy<IEncryptDecrypt>(() => CreateFileService(), System.Threading.LazyThreadSafetyMode.PublicationOnly);
+        static Lazy<IEncryptDecrypt> Implementation = new Lazy<IEncryptDecrypt>(() => CreateEncryptDecryptService(), System.Threading.LazyThreadSafetyMode.PublicationOnly);
 
         /// <summary>
         /// Current settings to use
@@ -27,7 +27,7 @@ namespace Plugin.EncryptDecrypt
             }
         }
 
-        static IEncryptDecrypt CreateFileService()
+        static IEncryptDecrypt CreateEncryptDecryptService()
         {
 #if NETSTANDARD1_0
             return null;
