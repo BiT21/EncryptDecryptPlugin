@@ -3,8 +3,8 @@
   <metadata>
     <id>BiT21.CrossPlatform.Plugin.EncryptDecrypt</id>
     <version>1.0.0-alpha</version>
-    <authors>Raul G Dibildos</authors>
-    <owners>Raul G Dibildos</owners>
+    <authors>Raul G. Dibildos</authors>
+    <owners>Raul G. Dibildos</owners>
     <licenseUrl>https://github.com/BiT21/EncryptDecryptPlugin/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/BiT21/EncryptDecryptPlugin</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/BiT21/EncryptDecryptPlugin/master/art/icon.png</iconUrl>
