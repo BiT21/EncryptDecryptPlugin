@@ -7,7 +7,7 @@ Great to secure data when saving to disk on a mobile devices without using vault
 Another scenario is the use of session less backend user info tokens. A backend creates user data tokens and send them to the client encrypted. On every client call to backend it may add the token on the header request. This will allow the backend to receive client information to be be used to satisfy the request, with the garanty that he has created the token and the information is acureate. This avoids the backend to querya database for client information on each request based on user Id or session coockie. 
 
 ### Setup
-* Available on NuGet: http://www.nuget.org/packages/TBD [![NuGet](https://img.shields.io/nuget/v/Xam.Plugin.DeviceInfo.svg?label=NuGet)](https://www.nuget.org/packages/TBD/)
+* Available on NuGet: https://www.nuget.org/packages/BiT21.CrossPlatform.Plugin.EncryptDecrypt/ [![NuGet](https://img.shields.io/nuget/v/Xam.Plugin.DeviceInfo.svg?label=NuGet)](https://www.nuget.org/packages/TBD/)
 * Install into your PCL/netstandard project, Client adn .NET projects.
 
 **Platform Support**
