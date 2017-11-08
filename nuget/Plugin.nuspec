@@ -12,35 +12,11 @@
     <description>
         Easily have file system access from shared code using a common interface. Used by other plugins like JsonCache.
     </description>
-    <releaseNotes>.</releaseNotes>
+    <releaseNotes>This code is tested from BiT21.Xam.Plugin.FileService unit testing.</releaseNotes>
     <summary>Easily to secure a string data using a string password.</summary>
     <tags>xamarin, pcl, xam.cpl, file system, encrypt, decrypt, password, .NETFramework, backend, android, ios, windows, uwp, xamarin.forms</tags>
     <copyright>Copyright 2017</copyright>
     <dependencies>
-      <group targetFramework="net">
-            <dependency id="Newtonsoft.Json" version="10.0.3" />
-       </group>
-       <group targetFramework="win">
-              <dependency id="Newtonsoft.Json" version="10.0.3" />       
-       </group>      
-       <group targetFramework="netstandard1.0">
-                <dependency id="Newtonsoft.Json" version="10.0.3" />         
-       </group>
-       <group targetFramework="MonoAndroid10">
-             <dependency id="Newtonsoft.Json" version="10.0.3" />        
-       </group>
-       <group targetFramework="Xamarin.iOS10">
-             <dependency id="Newtonsoft.Json" version="10.0.3" />       
-       </group>       
-       <group targetFramework="portable-net45+win+wpa81+wp80">
-             <dependency id="Newtonsoft.Json" version="10.0.3" />       
-       </group>
-       <group targetFramework="uap">
-             <dependency id="Newtonsoft.Json" version="10.0.3" />      
-       </group>
-       <group targetFramework="dotnet">
-             <dependency id="Newtonsoft.Json" version="10.0.3" />             
-       </group>
     </dependencies>
   </metadata>
   <files>

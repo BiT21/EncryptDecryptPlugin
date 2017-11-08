@@ -16,13 +16,14 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <DevInstrumentationEnabled>True</DevInstrumentationEnabled>
+    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;__ANDROID__</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -30,7 +31,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;__ANDROID__</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\Plugin.EncryptDecrypt.XML</DocumentationFile>
@@ -47,7 +48,12 @@
     <Compile Include="..\Plugin.EncryptDecrypt\CrossEncryptDecrypt.cs">
       <Link>CrossEncryptDecrypt.cs</Link>
     </Compile>
-    <Compile Include="EncryptDecryptImplementation.cs" />
+    <Compile Include="..\Plugin.EncryptDecrypt\EncryptDecriptBase.cs">
+      <Link>EncryptDecriptBase.cs</Link>
+    </Compile>
+    <Compile Include="..\Plugin.EncryptDecrypt\EncryptDecryptImplementation.cs">
+      <Link>EncryptDecryptImplementation.cs</Link>
+    </Compile>
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -56,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Plugin.EncryptDecrypt.Abstractions\Plugin.EncryptDecrypt.Abstractions.csproj">
-      <Project>{6edb0588-ffc5-4ef5-8a99-9e241d0f878d}</Project>
+      <Project>{6CE295D0-7550-4ECF-93B5-F960119028F5}</Project>
       <Name>Plugin.EncryptDecrypt.Abstractions</Name>
     </ProjectReference>
   </ItemGroup>

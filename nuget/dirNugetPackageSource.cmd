@@ -1,3 +1,3 @@
 
-dir /b \code\NugetPackageSource\*%1*
+dir /b \code\.nuget\*%1*
 @echo.
