@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>57accde5-769b-443f-aef7-58921a3d9a20</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Plugin.EncryptDecrypt.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)CrossEncryptDecrypt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EncryptDecriptBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EncryptDecryptImplementation.cs" />
+  </ItemGroup>
+</Project>

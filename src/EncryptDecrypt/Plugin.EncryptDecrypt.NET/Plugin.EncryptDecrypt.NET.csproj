@@ -40,15 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Plugin.EncryptDecrypt\CrossEncryptDecrypt.cs">
-      <Link>CrossEncryptDecrypt.cs</Link>
-    </Compile>
-    <Compile Include="..\Plugin.EncryptDecrypt\EncryptDecriptBase.cs">
-      <Link>EncryptDecriptBase.cs</Link>
-    </Compile>
-    <Compile Include="..\Plugin.EncryptDecrypt\EncryptDecryptImplementation.cs">
-      <Link>EncryptDecryptImplementation.cs</Link>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -57,5 +48,6 @@
       <Name>Plugin.EncryptDecrypt.Abstractions</Name>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="..\Plugin.EncryptDecrypt.Shared\Plugin.EncryptDecrypt.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

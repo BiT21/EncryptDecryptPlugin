@@ -106,15 +106,6 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\Plugin.EncryptDecrypt\CrossEncryptDecrypt.cs">
-      <Link>CrossEncryptDecrypt.cs</Link>
-    </Compile>
-    <Compile Include="..\Plugin.EncryptDecrypt\EncryptDecriptBase.cs">
-      <Link>EncryptDecriptBase.cs</Link>
-    </Compile>
-    <Compile Include="..\Plugin.EncryptDecrypt\EncryptDecryptImplementation.cs">
-      <Link>EncryptDecryptImplementation.cs</Link>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Plugin.EncryptDecrypt.UWP.rd.xml" />
   </ItemGroup>
@@ -129,6 +120,7 @@
       <Name>Plugin.EncryptDecrypt.Abstractions</Name>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="..\Plugin.EncryptDecrypt.Shared\Plugin.EncryptDecrypt.Shared.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

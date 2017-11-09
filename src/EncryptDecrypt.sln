@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.EncryptDecrypt.iOS", "EncryptDecrypt\Plugin.EncryptDecrypt.iOS\Plugin.EncryptDecrypt.iOS.csproj", "{2882AEEB-D4CD-4EB9-8A6C-6653B33681F0}"
 EndProject
@@ -21,7 +21,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.EncryptDecrypt.UWP",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.EncryptDecrypt.UWP.Test", "EncryptDecryptTest\Plugin.EncryptDecrypt.UWP.Test\Plugin.EncryptDecrypt.UWP.Test.csproj", "{EB30280F-8393-4865-B416-F33367ADEC7D}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Plugin.EncryptDecrypt.Shared", "EncryptDecrypt\Plugin.EncryptDecrypt.Shared\Plugin.EncryptDecrypt.Shared.shproj", "{57ACCDE5-769B-443F-AEF7-58921A3D9A20}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		EncryptDecrypt\Plugin.EncryptDecrypt.Shared\Plugin.EncryptDecrypt.Shared.projitems*{2882aeeb-d4cd-4eb9-8a6c-6653b33681f0}*SharedItemsImports = 4
+		EncryptDecrypt\Plugin.EncryptDecrypt.Shared\Plugin.EncryptDecrypt.Shared.projitems*{44cc7d06-7ce0-4d1e-95f5-5e31abfe6c86}*SharedItemsImports = 4
+		EncryptDecrypt\Plugin.EncryptDecrypt.Shared\Plugin.EncryptDecrypt.Shared.projitems*{56a56f17-7de1-4ca1-9617-bf32e971ac84}*SharedItemsImports = 4
+		EncryptDecrypt\Plugin.EncryptDecrypt.Shared\Plugin.EncryptDecrypt.Shared.projitems*{57accde5-769b-443f-aef7-58921a3d9a20}*SharedItemsImports = 13
+		EncryptDecrypt\Plugin.EncryptDecrypt.Shared\Plugin.EncryptDecrypt.Shared.projitems*{e34b516d-c0d8-450f-9db0-bb6a5b04aef1}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM
