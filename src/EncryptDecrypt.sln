@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.EncryptDecrypt.iOS", "EncryptDecrypt\Plugin.EncryptDecrypt.iOS\Plugin.EncryptDecrypt.iOS.csproj", "{2882AEEB-D4CD-4EB9-8A6C-6653B33681F0}"
 EndProject
@@ -20,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.EncryptDecrypt.UWP", "EncryptDecrypt\Plugin.EncryptDecrypt.UWP\Plugin.EncryptDecrypt.UWP.csproj", "{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.EncryptDecrypt.UWP.Test", "EncryptDecryptTest\Plugin.EncryptDecrypt.UWP.Test\Plugin.EncryptDecrypt.UWP.Test.csproj", "{EB30280F-8393-4865-B416-F33367ADEC7D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncryptDecrypt.NetStandard", "EncryptDecrypt\EncryptDecrypt.NetStandard\EncryptDecrypt.NetStandard.csproj", "{7C8B475F-08AD-4222-81DD-057A830EFF40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -165,6 +167,22 @@ Global
 		{EB30280F-8393-4865-B416-F33367ADEC7D}.Release|x86.ActiveCfg = Release|x86
 		{EB30280F-8393-4865-B416-F33367ADEC7D}.Release|x86.Build.0 = Release|x86
 		{EB30280F-8393-4865-B416-F33367ADEC7D}.Release|x86.Deploy.0 = Release|x86
+		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Debug|ARM.Build.0 = Debug|Any CPU
+		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Debug|x64.Build.0 = Debug|Any CPU
+		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Debug|x86.Build.0 = Debug|Any CPU
+		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Release|ARM.ActiveCfg = Release|Any CPU
+		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Release|ARM.Build.0 = Release|Any CPU
+		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Release|x64.ActiveCfg = Release|Any CPU
+		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Release|x64.Build.0 = Release|Any CPU
+		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Release|x86.ActiveCfg = Release|Any CPU
+		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
