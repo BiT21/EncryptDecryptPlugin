@@ -2,6 +2,22 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>BiT21.EncryptDecrypt.NetStandard</AssemblyName>
+    <RootNamespace>BiT21.EncryptDecrypt.NetStandard</RootNamespace>
+    <Authors>Raul G. Dibildos</Authors>
+    <Company>BiT21 SL</Company>
+    <Product>EncryptDecrypt Plugin</Product>
+    <Description>Cross platform library to encrypt and decrypt string. Useful to securely save information on local files. Compatible with Newton.Soft object serialziation. Good companion of BiT21.FileService.</Description>
+    <PackageId>BiT21.CrossPlatform.Plugin.EncryptDecrypt</PackageId>
+    <PackageIconUrl>https://raw.githubusercontent.com/BiT21/EncryptDecryptPlugin/master/art/icon.png</PackageIconUrl>
+    <PackageTags>xamarin, pcl, xam.cpl, file system, encrypt, decrypt, password, .NETFramework, backend, android, ios, windows, uwp, xamarin.forms</PackageTags>
+    <Copyright>Copyright 2018</Copyright>
+    <PackageProjectUrl>https://github.com/BiT21/EncryptDecryptPlugin</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/BiT21/EncryptDecryptPlugin/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageReleaseNotes>This code is tested from BiT21.Xam.Plugin.FileService unit testing.</PackageReleaseNotes>
+    <RepositoryType>Git</RepositoryType>
+    <RepositoryUrl>https://github.com/BiT21/EncryptDecryptPlugin</RepositoryUrl>
+    <Version>2.0.0-preview</Version>
   </PropertyGroup>
 
 </Project>
