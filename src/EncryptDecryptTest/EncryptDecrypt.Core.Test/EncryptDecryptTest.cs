@@ -2,11 +2,12 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
-using BiT21.EncryptDecrypt.NetStandard;
+using BiT21.EncryptDecryptLib.Service;
 using System.Diagnostics;
-using BiT21.EncryptDecrypt.NetStandard.Exceptions;
+using BiT21.EncryptDecryptLib.Exceptions;
+using BiT21.EncryptDecryptLib.IService;
 
-namespace BiT21.EncryptDecrypt.Core.Test
+namespace BiT21.EncryptDecryptLib.Core.Test
 {
     [TestClass]
     public class EncryptDecryptTest
@@ -16,7 +17,7 @@ namespace BiT21.EncryptDecrypt.Core.Test
         [TestInitialize]
         public void Setup()
         {
-            encryptDecrypt = new NetStandard.EncryptDecrypt();
+            encryptDecrypt = new EncryptDecrypt();
         }
 
         [TestMethod]

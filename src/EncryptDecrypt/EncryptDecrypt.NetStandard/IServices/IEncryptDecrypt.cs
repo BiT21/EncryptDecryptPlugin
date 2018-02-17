@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace BiT21.EncryptDecrypt.NetStandard
+namespace BiT21.EncryptDecryptLib.IService
 {
     public interface IEncryptDecrypt
     {

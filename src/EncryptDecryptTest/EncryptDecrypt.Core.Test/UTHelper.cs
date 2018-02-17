@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace BiT21.EncryptDecrypt.Core.Test
+namespace BiT21.EncryptDecryptLib.Core.Test
 {
 
     public class Helper

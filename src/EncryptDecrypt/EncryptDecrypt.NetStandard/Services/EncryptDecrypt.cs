@@ -1,11 +1,12 @@
-﻿using BiT21.EncryptDecrypt.NetStandard.Exceptions;
+﻿using BiT21.EncryptDecryptLib.Exceptions;
+using BiT21.EncryptDecryptLib.IService;
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BiT21.EncryptDecrypt.NetStandard
+namespace BiT21.EncryptDecryptLib.Service
 {
     public class EncryptDecrypt : IEncryptDecrypt
     {

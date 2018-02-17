@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BiT21.EncryptDecrypt.NetStandard.Exceptions
+namespace BiT21.EncryptDecryptLib.Exceptions
 {
     public class EncryptDecriptException : Exception
     {
