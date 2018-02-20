@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2008
@@ -20,10 +20,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.EncryptDecrypt.UWP", "EncryptDecrypt\Plugin.EncryptDecrypt.UWP\Plugin.EncryptDecrypt.UWP.csproj", "{E34B516D-C0D8-450F-9DB0-BB6A5B04AEF1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.EncryptDecrypt.UWP.Test", "EncryptDecryptTest\Plugin.EncryptDecrypt.UWP.Test\Plugin.EncryptDecrypt.UWP.Test.csproj", "{EB30280F-8393-4865-B416-F33367ADEC7D}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncryptDecrypt.NetStandard", "EncryptDecrypt\EncryptDecrypt.NetStandard\EncryptDecrypt.NetStandard.csproj", "{7C8B475F-08AD-4222-81DD-057A830EFF40}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptDecrypt.Core.Test", "EncryptDecryptTest\EncryptDecrypt.Core.Test\EncryptDecrypt.Core.Test.csproj", "{541AA98E-F3DA-422A-B766-EC28A3A096DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -169,38 +165,6 @@ Global
 		{EB30280F-8393-4865-B416-F33367ADEC7D}.Release|x86.ActiveCfg = Release|x86
 		{EB30280F-8393-4865-B416-F33367ADEC7D}.Release|x86.Build.0 = Release|x86
 		{EB30280F-8393-4865-B416-F33367ADEC7D}.Release|x86.Deploy.0 = Release|x86
-		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Debug|ARM.Build.0 = Debug|Any CPU
-		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Debug|x64.Build.0 = Debug|Any CPU
-		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Debug|x86.Build.0 = Debug|Any CPU
-		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Release|ARM.ActiveCfg = Release|Any CPU
-		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Release|ARM.Build.0 = Release|Any CPU
-		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Release|x64.ActiveCfg = Release|Any CPU
-		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Release|x64.Build.0 = Release|Any CPU
-		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Release|x86.ActiveCfg = Release|Any CPU
-		{7C8B475F-08AD-4222-81DD-057A830EFF40}.Release|x86.Build.0 = Release|Any CPU
-		{541AA98E-F3DA-422A-B766-EC28A3A096DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{541AA98E-F3DA-422A-B766-EC28A3A096DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{541AA98E-F3DA-422A-B766-EC28A3A096DC}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{541AA98E-F3DA-422A-B766-EC28A3A096DC}.Debug|ARM.Build.0 = Debug|Any CPU
-		{541AA98E-F3DA-422A-B766-EC28A3A096DC}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{541AA98E-F3DA-422A-B766-EC28A3A096DC}.Debug|x64.Build.0 = Debug|Any CPU
-		{541AA98E-F3DA-422A-B766-EC28A3A096DC}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{541AA98E-F3DA-422A-B766-EC28A3A096DC}.Debug|x86.Build.0 = Debug|Any CPU
-		{541AA98E-F3DA-422A-B766-EC28A3A096DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{541AA98E-F3DA-422A-B766-EC28A3A096DC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{541AA98E-F3DA-422A-B766-EC28A3A096DC}.Release|ARM.ActiveCfg = Release|Any CPU
-		{541AA98E-F3DA-422A-B766-EC28A3A096DC}.Release|ARM.Build.0 = Release|Any CPU
-		{541AA98E-F3DA-422A-B766-EC28A3A096DC}.Release|x64.ActiveCfg = Release|Any CPU
-		{541AA98E-F3DA-422A-B766-EC28A3A096DC}.Release|x64.Build.0 = Release|Any CPU
-		{541AA98E-F3DA-422A-B766-EC28A3A096DC}.Release|x86.ActiveCfg = Release|Any CPU
-		{541AA98E-F3DA-422A-B766-EC28A3A096DC}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -208,7 +172,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F0B6AE69-9ECE-4EEA-A7E9-BC11756669DA} = {52DF7DF5-62EB-42F5-87B7-F0742705219E}
 		{EB30280F-8393-4865-B416-F33367ADEC7D} = {52DF7DF5-62EB-42F5-87B7-F0742705219E}
-		{541AA98E-F3DA-422A-B766-EC28A3A096DC} = {52DF7DF5-62EB-42F5-87B7-F0742705219E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7C05F0EE-9262-4921-B604-9A8C2BA24402}

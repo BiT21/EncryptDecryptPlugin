@@ -1,5 +1,14 @@
 # Encrypt Decrypt Plugin for Xamarin, UWP and .NET
 
+>
+> Library version 2.0 has been published. This nuget contais .Net Standard version of this EncryptDecrypt logic.
+> New code at src.NetStandard.
+>
+> Nuget version 2.0.x
+>
+> Pending to update this README to reference the new code.
+>
+
 A simple way to encrypt and decrypt a string. This version uses AES,ECD,PKCS7 for symmetric encryption, SHA256 for the password Hashing and UTF8 for encoding.
 
 Great to secure data when saving to disk on a mobile devices without using vault storages or  sending data securely to a backend without relying on network protocols.
